@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HandleLinksInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <InputTableRow>1</InputTableRow>
+  <InputTableColumn>3</InputTableColumn>
+  <OutputTableRow>1</OutputTableRow>
+  <OutputTableColumn>7</OutputTableColumn>
+  <Width>1</Width>
+  <Height>-1</Height>
+  <ErrorPatterns>
+    <string>книга не найдена</string>
+    <string>страница не найдена</string>
+    <string>not found</string>
+    <string>документ на сайте не найден</string>
+    <string>переехал на</string>
+    <string>ресурс не найден</string>
+  </ErrorPatterns>
+</HandleLinksInfo>

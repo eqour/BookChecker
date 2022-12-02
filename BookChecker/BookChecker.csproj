@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PackageId>BookChecker</PackageId>
+    <Authors>BookChecker</Authors>
+    <Product>BookChecker</Product>
+    <Description>Программа, анализирующая ссылки в таблицах на предмет доступности в сети.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <ApplicationIcon>book.ico</ApplicationIcon>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LinkCheckerLib\LinkCheckerLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
