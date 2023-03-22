@@ -1,54 +1,81 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
+using System.Net.Http;
 
 namespace LinkCheckerLib
 {
     public static class WebWorker
     {
+        private static readonly HttpClient client = new HttpClient();
+
         /// <summary>
         /// Возвращает код состояния http запроса
         /// </summary>
-        /// <param name="url">Ссылка на страницу</param>
+        /// <param name="uri">Ссылка на страницу</param>
         /// <returns>Код состояния</returns>
-        public static HttpStatusCode GetStatusCode(string url)
+        public static HttpStatusCode GetStatusCode(string uri)
         {
-            if (url == null)
-                throw new ArgumentNullException();
-
-            HttpStatusCode statusCode = HttpStatusCode.NotFound;
-            try
-            {
-                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                statusCode = httpWebResponse.StatusCode;
-                httpWebResponse.Close();
-                httpWebResponse.Dispose();
-            }
-            catch (WebException e)
-            {
-                if (((HttpWebResponse)e.Response) != null)
-                    statusCode = ((HttpWebResponse)e.Response).StatusCode;
-
-                return statusCode;
-            }
-
-            return statusCode;
+            validateUri(uri);
+            return MakeGetRequestWithRedirect(uri).StatusCode;
         }
 
-        public static string GetResponse(string url)
+        /// <summary>
+        /// Возвращает тело http запроса
+        /// </summary>
+        /// <param name="uri">Ссылка на страницу</param>
+        /// <returns>Тело запроса</returns>
+        public static string GetResponse(string uri)
         {
-            WebClient client = new WebClient();
-            string response = "";
+            string body = MakeGetRequestWithRedirect(uri).Body;
+            return body == null ? "" : body;
+        }
+
+        private static void validateUri(string uri)
+        {
+            if (uri == null) throw new ArgumentNullException();
+            new Uri(uri);
+        }
+
+        private static RequestResult MakeGetRequestWithRedirect(string uri)
+        {
             try
             {
-                response = client.DownloadString(url);
+                HttpResponseMessage responseMessage = client.GetAsync(uri).Result;
+                if (responseMessage.StatusCode == HttpStatusCode.Moved || responseMessage.StatusCode == HttpStatusCode.Found
+                    && responseMessage.Headers.Location != null)
+                {
+                    Debug.WriteLine($"redirect ({(int)responseMessage.StatusCode}): {responseMessage.Headers.Location}");
+                    return MakeGetRequestWithRedirect(responseMessage.Headers.Location.ToString());
+                }
+                else
+                {
+                    Debug.WriteLine($"request uri ({(int)responseMessage.StatusCode}): {uri}");
+                    return new RequestResult(responseMessage.StatusCode, responseMessage.Content.ReadAsStringAsync().Result);
+                }
             }
-            catch (Exception) { }
-            finally
+            catch (HttpRequestException e)
             {
-                client.Dispose();
+                Debug.WriteLine($"request uri ({404}): {uri}");
+                return new RequestResult(e.StatusCode.GetValueOrDefault(HttpStatusCode.NotFound), null);
             }
-            return response;
+            catch (Exception)
+            {
+                Debug.WriteLine($"request uri ({404}): {uri}");
+                return new RequestResult(HttpStatusCode.NotFound, null);
+            }
+        }
+
+        private class RequestResult
+        {
+            public HttpStatusCode StatusCode;
+            public string Body;
+
+            public RequestResult(HttpStatusCode statusCode, string body)
+            {
+                StatusCode = statusCode;
+                Body = body;
+            }
         }
     }
 }

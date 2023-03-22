@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks.Dataflow;
 
 namespace LinkCheckerLib
 {
@@ -169,16 +170,7 @@ namespace LinkCheckerLib
 
             (Dictionary<int, LinkInfo[]> handledLinks, Dictionary<int, string[]> preparedLinks, Queue<int> unhandledLinkKeys) couple = (handledLinks, preparedLinks, unhandledLinkKeys);
 
-            Task[] tasks = new Task[unhandledLinkKeys.Count];
-
-            for (int i = 0; i < unhandledLinkKeys.Count; i++)
-                tasks[i] = new Task(TasksProcessHandleLinks, couple);
-
-            foreach (Task task in tasks)
-                task.Start();
-
-            foreach (Task task in tasks)
-                task.Wait();
+            Parallel.For(0, unhandledLinkKeys.Count, new ParallelOptions() { MaxDegreeOfParallelism = 8 }, i => TasksProcessHandleLinks(couple));
 
             return handledLinks;
         }
