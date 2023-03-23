@@ -30,82 +30,89 @@ namespace WFInterface
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.StartCheckButton = new System.Windows.Forms.Button();
-            this.LinksCheckingProgressBar = new System.Windows.Forms.ProgressBar();
-            this.ProcessShowPanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ProcessShowPanel.SuspendLayout();
-            this.SuspendLayout();
+            StartCheckButton = new System.Windows.Forms.Button();
+            LinksCheckingProgressBar = new System.Windows.Forms.ProgressBar();
+            ProcessShowPanel = new System.Windows.Forms.Panel();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            ProcessShowPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // StartCheckButton
             // 
-            resources.ApplyResources(this.StartCheckButton, "StartCheckButton");
-            this.StartCheckButton.Name = "StartCheckButton";
-            this.StartCheckButton.UseVisualStyleBackColor = true;
-            this.StartCheckButton.Click += new System.EventHandler(this.StartCheckButton_Click);
+            resources.ApplyResources(StartCheckButton, "StartCheckButton");
+            StartCheckButton.Name = "StartCheckButton";
+            StartCheckButton.UseVisualStyleBackColor = true;
+            StartCheckButton.Click += StartCheckButton_Click;
             // 
             // LinksCheckingProgressBar
             // 
-            resources.ApplyResources(this.LinksCheckingProgressBar, "LinksCheckingProgressBar");
-            this.LinksCheckingProgressBar.MarqueeAnimationSpeed = 10;
-            this.LinksCheckingProgressBar.Name = "LinksCheckingProgressBar";
+            resources.ApplyResources(LinksCheckingProgressBar, "LinksCheckingProgressBar");
+            LinksCheckingProgressBar.MarqueeAnimationSpeed = 10;
+            LinksCheckingProgressBar.Name = "LinksCheckingProgressBar";
             // 
             // ProcessShowPanel
             // 
-            resources.ApplyResources(this.ProcessShowPanel, "ProcessShowPanel");
-            this.ProcessShowPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.ProcessShowPanel.Controls.Add(this.label4);
-            this.ProcessShowPanel.Controls.Add(this.label3);
-            this.ProcessShowPanel.Controls.Add(this.label2);
-            this.ProcessShowPanel.Controls.Add(this.label1);
-            this.ProcessShowPanel.Name = "ProcessShowPanel";
+            resources.ApplyResources(ProcessShowPanel, "ProcessShowPanel");
+            ProcessShowPanel.BackColor = System.Drawing.SystemColors.Control;
+            ProcessShowPanel.Controls.Add(label4);
+            ProcessShowPanel.Controls.Add(label3);
+            ProcessShowPanel.Controls.Add(label2);
+            ProcessShowPanel.Controls.Add(label1);
+            ProcessShowPanel.Name = "ProcessShowPanel";
             // 
             // label4
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(label4, "label4");
+            label4.Name = "label4";
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
             // 
             // label5
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(label5, "label5");
+            label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(label6, "label6");
+            label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            label6.Name = "label6";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.ProcessShowPanel);
-            this.Controls.Add(this.LinksCheckingProgressBar);
-            this.Controls.Add(this.StartCheckButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.ProcessShowPanel.ResumeLayout(false);
-            this.ProcessShowPanel.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(ProcessShowPanel);
+            Controls.Add(LinksCheckingProgressBar);
+            Controls.Add(StartCheckButton);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "Form1";
+            FormClosing += Form1_FormClosing;
+            ProcessShowPanel.ResumeLayout(false);
+            ProcessShowPanel.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -118,6 +125,7 @@ namespace WFInterface
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

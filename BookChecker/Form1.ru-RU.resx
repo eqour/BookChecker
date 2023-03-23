@@ -57,40 +57,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="StartCheckButton.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="StartCheckButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>606, 224</value>
   </data>
   <data name="StartCheckButton.Text" xml:space="preserve">
     <value>&amp;Начать проверку</value>
   </data>
-  <data name="LinksCheckingProgressBar.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="LinksCheckingProgressBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>29, 224</value>
   </data>
-  <data name="ProcessShowPanel.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="ProcessShowPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>725, 140</value>
   </data>
-  <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
-  <data name="label5.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>29, 193</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>265, 15</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Ожидание завершения процессов программы</value>
   </data>
-  <data name="label5.Visible" type="System.Boolean, System.Private.CoreLib">
+  <data name="label5.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>784, 290</value>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>485, 291</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>287, 15</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Бобылев Егор Алексеевич (eqour@yandex.ru), 2023</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 315</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAgBAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

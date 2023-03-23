@@ -136,8 +136,8 @@ namespace WFInterface
             _amountItems = e.NumberOfProcessedItems;
             _itemNumber = 0;
             _sheetNumber++;
-            
-            Invoke(new Action (() =>
+
+            Invoke(new Action(() =>
             {
                 LinksCheckingProgressBar.Value = 0;
                 LinksCheckingProgressBar.Minimum = 0;
